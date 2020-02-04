@@ -1,12 +1,10 @@
 package subtitle_view;
 
-
-import com.sun.deploy.util.StringUtils;
-
+import java.awt.*;
 import java.awt.datatransfer.UnsupportedFlavorException;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.*;
 import java.nio.charset.Charset;
 import java.util.*;
 import java.util.regex.Matcher;
@@ -15,68 +13,55 @@ import java.util.regex.Pattern;
 public class AnkiHelper {
     private final static String FILE_ENG_NAME = "eng";
     private final static String FILE_RUS_NAME = "rus";
-
     private static String PATH = "d:\\FILMs\\FamilyGuy\\Family Guy - Season 1\\";
     private static String WORD;
-
-    public static final Charset ISO_8859_1 = Charset.forName("ISO-8859-1");
-    public static final Charset UTF_8 = Charset.forName("UTF-8");
+    static Map<String, ArrayList<String>> composeSentences = new HashMap<>();
+    static ArrayList<String> sentences = new ArrayList<>();
 
     static {
         try {
             WORD = SystemClipboardAccess.readClipboard();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (UnsupportedFlavorException e) {
+        } catch (IOException | UnsupportedFlavorException e) {
             e.printStackTrace();
         }
     }
 
-    private static String TRANSLATE_WORD = "doubt";
     private final static String PATTERN = ".*\\b" + WORD + "\\b.*";
-    static Map<String, ArrayList<String>> composeSentences = new HashMap<>();
-    static ArrayList<String> sentences = new ArrayList<>();
 
-    public static void main(String[] args) throws IOException, UnsupportedFlavorException {
-        findInEngSub();
-        doBoldSent(composeSentences);
-        makeAnkiTemplate(composeSentences);
+    public static void main(String[] args) throws Exception {
+            new TrayHelper();
+            findInEngSub();
+            doBoldSent(composeSentences);
+            makeAnkiTemplate(composeSentences);
     }
 
-    public String getWord() {
-        String word = "car";
-        return word;
-    }
 
-    public static Map<String, ArrayList<String>> findInEngSub() throws IOException {
-
+    private static Map<String, ArrayList<String>> findInEngSub() throws Exception {
         BufferedReader reader = new BufferedReader(new FileReader(PATH + FILE_ENG_NAME + ".srt"));
-
-        Scanner sc = new Scanner(new FileReader(PATH + FILE_ENG_NAME + ".srt"));
-        String line2 = "";
-        while(sc.hasNextLine()) {
-            if (!(line2 = sc.nextLine()).isEmpty()){
-                System.out.println("true");
-            }else {
-                System.out.println("false");
-            }
-        }
-
-
 
         try {
             String line = "";
+            String prev_line = "";
+            String next_line;
             String time_code = "";
+
             while (line != null) {
                 line = reader.readLine();
 
                 if (line != null && line.matches(PATTERN)) {
+
+                    next_line = reader.readLine();
+                    //TODO если слово уже есть в Мапе то мы просто дописываем ее ArrayList
+
+                    if (!reader.readLine().isEmpty() && !prev_line.equals(time_code)) {
+                        line = prev_line + " " + line;
+                    } else {
+                        line = line + " " + next_line;
+                    }
                     sentences.add(line);
-                    System.out.println(time_code);
-                    String text = line + " " + reader.readLine();
-                    System.out.println("text: " + text);
-                    findInRusSub(time_code);
                 }
+                prev_line = line;
+
                 if (line != null && Pattern.matches(".*-->.*", line)) {
                     time_code = line;
                 }
@@ -97,12 +82,11 @@ public class AnkiHelper {
             while (line != null) {
                 line = reader.readLine();
                 if (line != null && line.equals(translate)) {
-                     System.out.println("rus_time_code: " + line);
+                    System.out.println("rus_time_code: " + line);
                     next_line = reader.readLine() + " " + reader.readLine();
-                     System.out.println("rus_line: " + next_line);
+                    System.out.println("rus_line: " + next_line);
                 }
             }
-
         } finally {
             reader.close();
         }
@@ -126,26 +110,33 @@ public class AnkiHelper {
         return (m.replaceAll("<b>" + word + "</b>"));
     }
 
-    public static String makeAnkiTemplate(Map<String, ArrayList<String>> composeSentences) {
-        StringBuilder builder = new StringBuilder();
+    public static void makeAnkiTemplate(Map<String, ArrayList<String>> composeSentences) throws IOException {
 
+        StringBuilder builder = new StringBuilder();
 
         for (Map.Entry<String, ArrayList<String>> sentencesEntry : composeSentences.entrySet()) {
             for (String sentences : sentencesEntry.getValue()) {
-                System.out.println("With bold:  " + sentences);
-                builder.append(sentences).append("|").append("translate").append("|").append("serial");
+                builder
+                        .append(WORD)
+                        .append(" | ")
+                        .append("translate")
+                        .append(" | ")
+                        .append(sentences)
+                        .append(" | ")
+                        .append("word_class")
+                        .append(" | ")
+                        .append("serial")
+                        .append("\n");
+
             }
-
-
         }
-
-
-        return builder.toString();
+        saveAnkiIntoFile(builder.toString());
     }
 
-    public void saveAnkiIntoFile() {
-        //      сохранить как последння строка
+    public static void saveAnkiIntoFile(String text) throws IOException {
+        PrintWriter pw = new PrintWriter(new FileWriter("C:\\Users\\Igor\\Desktop\\subtitles\\Anki_Parsed.txt", true));
+        pw.write(text);
+        pw.close();
     }
-
 
 }

@@ -9,11 +9,17 @@ import java.io.IOException;
  */
 public class SystemClipboardAccess {
 
-    public static void main(String args[])throws Exception {
+    public static void main(String args[]) throws Exception {
         System.out.println(readClipboard());
     }
 
     public static String readClipboard() throws IOException, UnsupportedFlavorException {
         return (String) Toolkit.getDefaultToolkit().getSystemClipboard().getData(DataFlavor.stringFlavor);
+    }
+
+    public static void clearClipboard() {
+        StringSelection stringSelection = new StringSelection("");
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(
+                stringSelection, null);
     }
 }
