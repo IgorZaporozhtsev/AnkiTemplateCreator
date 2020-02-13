@@ -3,10 +3,6 @@ package subtitle_view;
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.DataFlavor;
-import java.awt.datatransfer.UnsupportedFlavorException;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Observable;
@@ -52,8 +48,6 @@ class ClipboardTextListener extends Observable implements Runnable {
                     }
                 }
 
-            } catch (HeadlessException | UnsupportedFlavorException | IOException e1) {
-                e1.printStackTrace();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -61,6 +55,7 @@ class ClipboardTextListener extends Observable implements Runnable {
     }
 
     public static void main(String[] args) {
+        TrayHelper.show();
         ClipboardTextListener b = new ClipboardTextListener();
         Thread thread = new Thread(b);
         thread.start();

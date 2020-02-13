@@ -17,39 +17,6 @@ public class AnkiHelper {
         String PATTERN = ".*\\b" + WORD + "\\b.*";
     }
 
-    /*static {
-        try {
-            SUB_WORD = SystemClipboardAccess.readClipboard();
-        } catch (IOException | UnsupportedFlavorException e) {
-            e.printStackTrace();
-        }
-    }*/
-
-//    private final static String PATTERN = ".*\\b" + SUB_WORD + "\\b.*";
-
- /*   @Override
-    public void run() {
-        WORD = SubListener.SUB_WORD;
-        String PATTERN = ".*\\b" + WORD + "\\b.*";
-        try {
-            findInEngSub(WORD, PATTERN);
-            doBoldSent(composeSentences);
-            makeAnkiTemplate(composeSentences);
-        } catch (Exception e1) {
-            e1.printStackTrace();
-        }
-    }*/
-    /*public static void main(String[] args) throws Exception {
-            //new TrayHelper();
-           while (true) {
-               findInEngSub(SUB_WORD);
-               doBoldSent(composeSentences);
-               makeAnkiTemplate(composeSentences);
-           }
-
-    }*/
-
-
     public static Map<String, ArrayList<String>> findInEngSub(String word, String PATTERN) throws Exception {
         Map<String, ArrayList<String>> composeSentences = new HashMap<>();
         ArrayList<String> sentences = new ArrayList<>();

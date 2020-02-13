@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="af89b6a9-7945-4fc6-954b-15432712a0b6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/gtranslateapi_1_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/gtranslateapi_1_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/subtitle_view/AnkiHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/subtitle_view/AnkiHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/subtitle_view/SystemClipboardAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/subtitle_view/SystemClipboardAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/subtitle_view/AnkiHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/subtitle_view/AnkiHelper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/subtitle_view/SystemClipboardAccess.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/subtitle_view/SystemClipboardAccess.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/subtitle_view/ClipboardTextListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/subtitle_view/ClipboardTextListener.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -32,11 +28,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClipboardTextListener.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ClipboardTextListener.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/subtitle_view/ClipboardTextListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="58" selection-start-line="58" selection-end-line="58" />
+            <state relative-caret-position="340">
+              <caret line="57" column="26" selection-start-line="57" selection-start-column="26" selection-end-line="57" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#243#244#0" expanded="true" />
@@ -46,11 +42,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AnkiHelper.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SystemClipboardAccess.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/subtitle_view/SystemClipboardAccess.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TrayHelper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/subtitle_view/TrayHelper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="717">
+              <caret line="55" column="37" selection-start-line="55" selection-start-column="27" selection-end-line="55" selection-end-column="37" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#242#243#0" expanded="true" />
+                <element signature="e#264#265#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AnkiHelper.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/subtitle_view/AnkiHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="451">
-              <caret line="93" column="45" selection-start-line="93" selection-start-column="29" selection-end-line="93" selection-end-column="45" />
+            <state relative-caret-position="119">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
             </state>
           </provider>
         </entry>
@@ -70,6 +92,9 @@
       <find>you</find>
       <find>next_line</find>
       <find>deserve</find>
+      <find>doBoldSent</find>
+      <find>img.pn</find>
+      <find>TrayHelper</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -100,8 +125,8 @@
         <option value="$PROJECT_DIR$/src/main/java/subtitle_view/SystemClipboardAccess.java" />
         <option value="$PROJECT_DIR$/src/main/java/subtitle_view/SubListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/subtitle_view/Noseq.java" />
-        <option value="$PROJECT_DIR$/src/main/java/subtitle_view/ClipboardTextListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/subtitle_view/AnkiHelper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/subtitle_view/ClipboardTextListener.java" />
       </list>
     </option>
   </component>
@@ -336,12 +361,12 @@
       <workItem from="1580147319288" duration="3570000" />
       <workItem from="1580232827375" duration="22096000" />
       <workItem from="1580565099247" duration="21436000" />
-      <workItem from="1581438690499" duration="7450000" />
+      <workItem from="1581438690499" duration="8505000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86646000" />
+    <option name="totallyTimeSpent" value="87701000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -357,12 +382,13 @@
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.33660132" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33660132" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17803837" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17803837" />
       <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32897604" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
@@ -374,7 +400,6 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32897604" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -388,19 +413,19 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/subtitle_view/AnkiHelper.java</url>
-          <line>170</line>
+          <line>133</line>
           <properties />
           <option name="timeStamp" value="81" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/subtitle_view/AnkiHelper.java</url>
-          <line>166</line>
+          <line>129</line>
           <properties />
           <option name="timeStamp" value="83" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/subtitle_view/AnkiHelper.java</url>
-          <line>92</line>
+          <line>55</line>
           <properties />
           <option name="timeStamp" value="84" />
         </line-breakpoint>
@@ -676,13 +701,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/subtitle_view/Ыефке.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/subtitle_view/TrayHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="21" column="62" selection-start-line="21" selection-start-column="62" selection-end-line="21" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/lang/Thread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="185">
@@ -719,16 +737,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/subtitle_view/SystemClipboardAccess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/subtitle_view/Noseq.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -757,22 +765,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/subtitle_view/AnkiHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/subtitle_view/SystemClipboardAccess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/subtitle_view/TrayHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="717">
+          <caret line="55" column="37" selection-start-line="55" selection-start-column="27" selection-end-line="55" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#242#243#0" expanded="true" />
+            <element signature="e#264#265#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/subtitle_view/ClipboardTextListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="58" selection-start-line="58" selection-end-line="58" />
+        <state relative-caret-position="340">
+          <caret line="57" column="26" selection-start-line="57" selection-start-column="26" selection-end-line="57" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#243#244#0" expanded="true" />
             <element signature="e#274#275#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/subtitle_view/AnkiHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="93" column="45" selection-start-line="93" selection-start-column="29" selection-end-line="93" selection-end-column="45" />
         </state>
       </provider>
     </entry>
