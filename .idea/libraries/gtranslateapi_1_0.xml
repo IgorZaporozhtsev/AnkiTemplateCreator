@@ -2,6 +2,7 @@
   <library name="gtranslateapi-1.0">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/src/main/lib/gtranslateapi-1.0.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/commons-io-2.6.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

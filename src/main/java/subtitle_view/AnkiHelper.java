@@ -1,42 +1,59 @@
 package subtitle_view;
 
-import java.awt.*;
-import java.awt.datatransfer.UnsupportedFlavorException;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.*;
-import java.nio.charset.Charset;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class AnkiHelper {
-    private final static String FILE_ENG_NAME = "eng";
-    private final static String FILE_RUS_NAME = "rus";
-    private static String PATH = "d:\\FILMs\\FamilyGuy\\Family Guy - Season 1\\";
-    private static String WORD;
-    static Map<String, ArrayList<String>> composeSentences = new HashMap<>();
-    static ArrayList<String> sentences = new ArrayList<>();
+    public final static String FILE_ENG_NAME = "eng";
+    public final static String FILE_RUS_NAME = "rus";
+    public static String PATH = "d:\\FILMs\\FamilyGuy\\Family Guy - Season 1\\";
+    public static String WORD;
 
-    static {
+    public AnkiHelper(String w) throws Exception {
+
+        WORD = w;
+        String PATTERN = ".*\\b" + WORD + "\\b.*";
+    }
+
+    /*static {
         try {
-            WORD = SystemClipboardAccess.readClipboard();
+            SUB_WORD = SystemClipboardAccess.readClipboard();
         } catch (IOException | UnsupportedFlavorException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
-    private final static String PATTERN = ".*\\b" + WORD + "\\b.*";
+//    private final static String PATTERN = ".*\\b" + SUB_WORD + "\\b.*";
 
-    public static void main(String[] args) throws Exception {
-            new TrayHelper();
-            findInEngSub();
+ /*   @Override
+    public void run() {
+        WORD = SubListener.SUB_WORD;
+        String PATTERN = ".*\\b" + WORD + "\\b.*";
+        try {
+            findInEngSub(WORD, PATTERN);
             doBoldSent(composeSentences);
             makeAnkiTemplate(composeSentences);
-    }
+        } catch (Exception e1) {
+            e1.printStackTrace();
+        }
+    }*/
+    /*public static void main(String[] args) throws Exception {
+            //new TrayHelper();
+           while (true) {
+               findInEngSub(SUB_WORD);
+               doBoldSent(composeSentences);
+               makeAnkiTemplate(composeSentences);
+           }
+
+    }*/
 
 
-    private static Map<String, ArrayList<String>> findInEngSub() throws Exception {
+    public static Map<String, ArrayList<String>> findInEngSub(String word, String PATTERN) throws Exception {
+        Map<String, ArrayList<String>> composeSentences = new HashMap<>();
+        ArrayList<String> sentences = new ArrayList<>();
+
         BufferedReader reader = new BufferedReader(new FileReader(PATH + FILE_ENG_NAME + ".srt"));
 
         try {
@@ -44,6 +61,8 @@ public class AnkiHelper {
             String prev_line = "";
             String next_line;
             String time_code = "";
+
+            if (!exist(WORD, composeSentences))
 
             while (line != null) {
                 line = reader.readLine();
@@ -66,12 +85,23 @@ public class AnkiHelper {
                     time_code = line;
                 }
             }
-            composeSentences.put(WORD, sentences);
+            composeSentences.put(word, sentences);
+            System.out.println(word +  " : " + composeSentences);
+            makeAnkiTemplate(composeSentences);
 
         } finally {
             reader.close();
         }
         return composeSentences;
+    }
+
+    public static boolean exist(String word, Map<String, ArrayList<String>> composeSentences) {
+        for (Map.Entry<String, ArrayList<String>> sentencesEntry : composeSentences.entrySet()) {
+            if(sentencesEntry.getKey().equals(word)){
+                return true;
+            }
+        }
+        return false;
     }
 
     public static String findInRusSub(String translate) throws IOException {
@@ -101,7 +131,7 @@ public class AnkiHelper {
                 strings.add(bold(WORD, sentences));
             }
         }
-        composeSentences.put(WORD, strings);
+       // composeSentences.put(WORD, strings);
     }
 
     public static String bold(String word, String sentence) {

@@ -10,7 +10,7 @@ import java.io.IOException;
 public class SystemClipboardAccess {
 
     public static void main(String args[]) throws Exception {
-        System.out.println(readClipboard());
+       System.out.println(readClipboard());
     }
 
     public static String readClipboard() throws IOException, UnsupportedFlavorException {
