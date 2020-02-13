@@ -39,9 +39,10 @@ class ClipboardTextListener extends Observable implements Runnable {
                         // Do whatever you want to do when a clipboard change was detected, e.g.:
                         System.out.println("New clipboard text detected: " + data);
 
-                        AnkiHelper.WORD = data;
+                        AnkiSubCreator.WORD = data;
                         String PATTERN = ".*\\b" + data + "\\b.*";
-                        AnkiHelper.findInEngSub(data, PATTERN);
+                        AnkiSubCreator.findInEngSub(data, PATTERN);
+                        //AnkiSubCreator.init();
 
                         setChanged();
                         notifyObservers(data);

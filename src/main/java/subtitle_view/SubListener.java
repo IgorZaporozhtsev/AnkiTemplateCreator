@@ -16,7 +16,7 @@ public class SubListener{
             try {
                 SUB_WORD = (String) clipboard.getData(DataFlavor.stringFlavor);
                 System.out.println(SUB_WORD);
-                    //new AnkiHelper();
+                    //new AnkiSubCreator();
 
             } catch (Exception e) {
                 e.printStackTrace();

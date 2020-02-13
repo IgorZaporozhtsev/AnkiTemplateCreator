@@ -5,14 +5,13 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class AnkiHelper {
+public class AnkiSubCreator {
     public final static String FILE_ENG_NAME = "eng";
     public final static String FILE_RUS_NAME = "rus";
     public static String PATH = "d:\\FILMs\\FamilyGuy\\Family Guy - Season 1\\";
     public static String WORD;
 
-    public AnkiHelper(String w) throws Exception {
-
+    public AnkiSubCreator(String w) throws Exception {
         WORD = w;
         String PATTERN = ".*\\b" + WORD + "\\b.*";
     }
